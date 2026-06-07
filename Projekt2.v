@@ -122,3 +122,19 @@ Proof.
   intros.
   repeat (destruct v; trivial).
 Qed.
+
+Lemma dobrzeZdefK16 : forall u v : nat, krawedzieK16 u v = true -> In u wierzcholkiK16 /\ In v wierzcholkiK16.
+Proof.
+  intros.
+  split.
+  do 8 (destruct u; unfold wierzcholkiK16; simpl; intuition).
+  do 9 (destruct v; unfold wierzcholkiK16; simpl; rewrite nieskierowanyK16 in H; intuition).
+Qed.
+
+Definition K16 : Graf := {|
+  wierzcholki := wierzcholkiK16;
+  krawedzie := krawedzieK16;
+  nieskierowany := nieskierowanyK16;
+  bezPetli := bezPetliK16;
+  dobrzeZdef := dobrzeZdefK16
+|}.
