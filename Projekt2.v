@@ -117,3 +117,8 @@ Proof.
   do 8 (destruct v; simpl; trivial).
 Qed.
     
+Lemma bezPetliK16 : forall v : nat, krawedzieK16 v v = false.
+Proof. 
+  intros.
+  repeat (destruct v; trivial).
+Qed.
