@@ -60,3 +60,18 @@ Proof.
   repeat (destruct v; trivial).
 Qed.
     
+Lemma dobrzeZdefK33 : forall u v : nat, krawedzieK33 u v = true -> In u wierzcholkiK33 /\ In v wierzcholkiK33.
+Proof.
+  intros.
+  split.
+  do 8 (destruct u; unfold wierzcholkiK33; simpl; intuition).
+  do 7 (destruct v; unfold wierzcholkiK33; simpl; rewrite nieskierowanyK33 in H; intuition).
+Qed.
+
+Definition K33 : Graf := {|
+  wierzcholki := wierzcholkiK33;
+  krawedzie := krawedzieK33;
+  nieskierowany := nieskierowanyK33;
+  bezPetli := bezPetliK33;
+  dobrzeZdef := dobrzeZdefK33
+|}.
