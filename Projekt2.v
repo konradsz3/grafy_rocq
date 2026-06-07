@@ -138,3 +138,20 @@ Definition K16 : Graf := {|
   bezPetli := bezPetliK16;
   dobrzeZdef := dobrzeZdefK16
 |}.
+
+Fixpoint ileSasiadow (v : nat) (krawedzie : nat -> nat -> bool) (wierzcholki : list nat) : nat :=
+  match wierzcholki with
+  | nil => 0
+  | u :: reszta => 
+      if krawedzie v u then 
+        S (ileSasiadow v krawedzie reszta)
+      else 
+        ileSasiadow v krawedzie reszta
+  end.
+
+Definition stopienWierzcholka (v : nat) (G : Graf) : nat :=
+  ileSasiadow v (krawedzie G) (wierzcholki G).
+  
+Eval compute in stopienWierzcholka 3 K33.
+Eval compute in stopienWierzcholka 1 K16.
+Eval compute in stopienWierzcholka 5 K16.
