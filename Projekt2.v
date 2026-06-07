@@ -53,3 +53,10 @@ Proof.
   do 7 (destruct v; trivial).
   do 7 (destruct v; trivial).
 Qed.
+
+Lemma bezPetliK33 : forall v : nat, krawedzieK33 v v = false.
+Proof. 
+  intros.
+  repeat (destruct v; trivial).
+Qed.
+    
