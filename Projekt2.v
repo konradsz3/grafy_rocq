@@ -33,3 +33,23 @@ Definition krawedzieK33 (v : nat) (u : nat) : bool :=
   | 6, 3 => true
   | _, _ => false
   end.
+
+Lemma nieskierowanyK33 : forall u v : nat, krawedzieK33 u v = krawedzieK33 v u.
+Proof.
+  intros.
+  destruct u.
+  do 7 (destruct v; trivial).
+  destruct u.
+  do 7 (destruct v; trivial).
+  destruct u.
+  do 7 (destruct v; trivial).
+  destruct u.
+  do 7 (destruct v; trivial).
+  destruct u.
+  do 7 (destruct v; trivial).
+  destruct u.
+  do 7 (destruct v; trivial).
+  destruct u.
+  do 7 (destruct v; trivial).
+  do 7 (destruct v; trivial).
+Qed.
