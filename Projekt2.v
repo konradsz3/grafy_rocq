@@ -94,3 +94,26 @@ Definition krawedzieK16 (v : nat) (u : nat) : bool :=
   | 7, 1 => true
   | _, _ => false
   end.    
+
+Lemma nieskierowanyK16 : forall u v : nat, krawedzieK16 u v = krawedzieK16 v u.
+Proof.
+  intros.
+  destruct u.
+  do 8 (destruct v; simpl; trivial).
+  destruct u.
+  do 8 (destruct v; simpl; trivial).
+  destruct u.
+  do 8 (destruct v; simpl; trivial).
+  destruct u.
+  do 8 (destruct v; simpl; trivial).
+  destruct u.
+  do 8 (destruct v; simpl; trivial).
+  destruct u.
+  do 8 (destruct v; simpl; trivial).
+  destruct u.
+  do 8 (destruct v; simpl; trivial).
+  destruct u.
+  do 8 (destruct v; simpl; trivial).
+  do 8 (destruct v; simpl; trivial).
+Qed.
+    
