@@ -75,3 +75,22 @@ Definition K33 : Graf := {|
   bezPetli := bezPetliK33;
   dobrzeZdef := dobrzeZdefK33
 |}.
+
+Definition wierzcholkiK16 := 1 :: 2 :: 3 :: 4 :: 5 :: 6 :: 7 :: nil.
+
+Definition krawedzieK16 (v : nat) (u : nat) : bool :=
+  match v, u with
+  | 1, 2 => true
+  | 1, 3 => true
+  | 1, 4 => true
+  | 1, 5 => true
+  | 1, 6 => true
+  | 1, 7 => true
+  | 2, 1 => true
+  | 3, 1 => true
+  | 4, 1 => true
+  | 5, 1 => true
+  | 6, 1 => true
+  | 7, 1 => true
+  | _, _ => false
+  end.    
