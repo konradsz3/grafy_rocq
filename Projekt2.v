@@ -155,3 +155,54 @@ Definition stopienWierzcholka (v : nat) (G : Graf) : nat :=
 Eval compute in stopienWierzcholka 3 K33.
 Eval compute in stopienWierzcholka 1 K16.
 Eval compute in stopienWierzcholka 5 K16.
+
+(* Dwudzielność *)
+
+Definition Dwudzielny (G : Graf) : Prop := exists podzial : nat -> bool, forall u v : nat, (krawedzie G) u v = true -> podzial u <> podzial v.
+
+Definition podzialK33 (v : nat) : bool :=
+  match v with
+  | 1 => true
+  | 2 => true
+  | 3 => true
+  | _ => false
+  end.
+
+Lemma dwudzielnoscK33 : Dwudzielny K33.
+Proof.
+  exists podzialK33.
+  intros.
+  destruct u.
+  destruct v.
+  discriminate H.
+  discriminate H.
+  
+  destruct u.
+  do 4 (destruct v; try discriminate H).
+  intuition.
+  
+  destruct u.
+  do 4 (destruct v; try discriminate H).
+  intuition.
+  
+  destruct u.
+  do 4 (destruct v; try discriminate H).
+  intuition.
+  
+  destruct u.
+  destruct v.
+  discriminate H.
+  do 3 (destruct v; intuition).
+  
+  destruct u.
+  destruct v.
+  discriminate H.
+  do 3 (destruct v; intuition).
+  
+  destruct u.
+  destruct v.
+  discriminate H.
+  do 3 (destruct v; intuition).
+  
+  discriminate H.
+Qed.
