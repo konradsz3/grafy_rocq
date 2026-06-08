@@ -206,3 +206,59 @@ Proof.
   
   discriminate H.
 Qed.
+
+Definition podzialK16 (v : nat) : bool :=
+  match v with
+  | 1 => true
+  | _ => false
+  end.
+ 
+Lemma dwudzielnoscK16 : Dwudzielny K16.
+Proof.
+  exists podzialK16.
+  intros.
+  destruct u.
+  destruct v.
+  discriminate H.
+  discriminate H.
+  destruct u.
+  do 2 (destruct v; try discriminate H).
+  intuition.
+  destruct u.
+  destruct v.
+  discriminate H.
+  destruct v.
+  intuition.
+  discriminate.
+  destruct u.
+  destruct v.
+  discriminate H.
+  destruct v.
+  intuition.
+  discriminate.
+  destruct u.
+  destruct v.
+  discriminate H.
+  destruct v.
+  intuition.
+  discriminate.
+  destruct u.
+  destruct v.
+  discriminate H.
+  destruct v.
+  intuition.
+  discriminate.
+  destruct u.
+  destruct v.
+  discriminate H.
+  destruct v.
+  intuition.
+  discriminate.
+  destruct u.
+  destruct v.
+  discriminate H.
+  destruct v.
+  intuition.
+  discriminate.
+  discriminate.
+Qed.
