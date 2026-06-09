@@ -262,3 +262,28 @@ Proof.
   discriminate.
   discriminate.
 Qed.
+    
+(* Kolorowanie *)
+Definition dobrzeKKolorowalny (G:Graf) (k : nat) : Prop := exists kolorowanie: nat -> nat, (forall v : nat, In v (wierzcholki G) -> kolorowanie v < k) /\ (forall u v : nat, (krawedzie G) u v = true -> kolorowanie u <> kolorowanie v).
+
+Theorem dwudzielneSaDwukolorowalne : forall G : Graf, Dwudzielny G -> dobrzeKKolorowalny G 2.
+Proof.
+  intros.
+  unfold Dwudzielny in H.
+  destruct H.
+  exists (fun v => if x v then 1 else 0).
+  split.
+  intros.
+  destruct x.
+  lia.
+  lia.
+  intros.
+  apply H in H0.
+  destruct x.
+  destruct x.
+  intuition.
+  lia.
+  destruct x.
+  lia.
+  intuition.
+Qed.  
