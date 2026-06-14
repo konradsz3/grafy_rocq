@@ -64,7 +64,7 @@ Lemma dobrzeZdefK33 : forall u v : nat, krawedzieK33 u v = true -> In u wierzcho
 Proof.
   intros.
   split.
-  do 8 (destruct u; unfold wierzcholkiK33; simpl; intuition).
+  do 7 (destruct u; unfold wierzcholkiK33; simpl; intuition).
   do 7 (destruct v; unfold wierzcholkiK33; simpl; rewrite nieskierowanyK33 in H; intuition).
 Qed.
 
