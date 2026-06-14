@@ -15,5 +15,5 @@ Na kod składają się następujące elementy:
 Projekt został zrealizowany w ramach przedmiotu _Metody formalne i weryfikacja protokołów kryptograficznych_. 
 Przedmiot prowadzony jest na Wydziale Matematyki i Nauk Informacyjnych Politechniki Warszawskiej, na studiach magisterskich, na kierunku Matematyka (specjalność: Matematyka w cyberbezpieczeństwie), w semestrze letnim 2025/2026.
 
-Cały kod projektu znajduje się w pliku `Projekt.v`.
+Cały kod projektu znajduje się w pliku `Projekt2.v`.
  
